@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.exam.pojo">
+
+	<class name="Exam" table="EXAM">
+	    
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+            <generator class="native"/>
+		</id>
+		<property name="singleScore" type="java.lang.Integer">
+			<column length="10" name="SINGLESCORE" />
+		</property>
+		<property name="moreScore" type="java.lang.Integer">
+			<column length="10" name="MORESCORE" />
+		</property>
+		<property name="score" type="java.lang.Integer">
+			<column length="10" name="SCORE" />
+		</property>
+		
+		<property name="examDate" type="timestamp">
+			<column  name="EXAMDATE" />
+		</property>
+		<property name="beginDate" type="timestamp">
+			<column  name="BEGINDATE" />
+		</property>
+		<property name="endDate" type="timestamp">
+			<column  name="ENDDATE" />
+		</property>
+		
+		<property name="stuIp" type="string">
+			<column  name="STUIP" />
+		</property>
+		<!-- unique="true" 唯一性约束,即此列的值不可重复-->
+		<many-to-one name="student" class="Student" column="STUDENTID"></many-to-one>
+		<many-to-one name="paper" class="Paper" column="PAPERID"></many-to-one>
+		
+	</class>
+
+</hibernate-mapping>

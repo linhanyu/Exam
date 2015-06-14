@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.exam.pojo">
+
+	<class name="Paper" table="PAPER">
+	    
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+            <generator class="native"/>
+		</id>
+		<property name="paperName" type="java.lang.String">
+			<column length="100" name="PAPERNAME" />
+		</property>
+		<property name="joinDate" type="timestamp">
+			<column  name="joinDate" />
+		</property>
+		
+		
+		<!-- 一对多 -->
+		<set name="questions">
+			<key column="PAPERID"></key>
+			<one-to-many class="Question"/>
+		</set>
+		
+	</class>
+
+</hibernate-mapping>

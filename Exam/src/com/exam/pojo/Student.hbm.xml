@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.exam.pojo">
+
+	<class name="Student" table="STUDENT">
+	    
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+            <generator class="native"/>
+		</id>
+		<property name="name" type="java.lang.String">
+			<column length="100" name="NAME" />
+		</property>
+		<property name="password" type="java.lang.String">
+			<column length="50" name="PASSWORD" />
+		</property>
+		<property name="sex" type="java.lang.String">
+			<column length="50" name="SEX" />
+		</property>
+		<property name="flag" type="java.lang.String">
+			<column length="50" name="FLAG" />
+		</property>
+		<property name="school" type="java.lang.String">
+			<column length="50" name="SCHOOL" />
+		</property>
+		<property name="major" type="java.lang.String">
+			<column length="50" name="MAJOR" />
+		</property>
+		<property name="phone" type="java.lang.String">
+			<column length="50" name="PHONE" />
+		</property>
+		
+		<set name="exams" cascade="delete">
+			<key column="STUDENTID"></key>
+			<one-to-many class="Exam" />
+		</set>
+	</class>
+
+</hibernate-mapping>

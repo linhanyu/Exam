@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="    
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"> 
+
+
+		<!-- 考生-->
+	<bean id="studentAction" scope="prototype" class="com.exam.action.StudentAction">
+	    <property name="studentService" ref="studentService"></property>
+	</bean>
+	<bean id="studentService" class="com.exam.service.StudentService">
+		<property name="studentDao" ref="studentDao"></property>
+	</bean>
+	<bean id="studentDao"  class="com.exam.dao.StudentDao">
+	    <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 管理员 -->
+	<bean id="managerAction" scope="prototype" class="com.exam.action.ManagerAction">
+	    <property name="managerService" ref="managerService"></property>
+	</bean>
+	<bean id="managerService" class="com.exam.service.ManagerService">
+		<property name="managerDao" ref="managerDao"></property>
+	</bean>
+	<bean id="managerDao"  class="com.exam.dao.ManagerDao">
+	    <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 试卷 -->
+	<bean id="paperAction" scope="prototype" class="com.exam.action.PaperAction">
+	    <property name="paperService" ref="paperService"></property>
+	</bean>
+	<bean id="paperService" class="com.exam.service.PaperService">
+		<property name="paperDao" ref="paperDao"></property>
+	</bean>
+	<bean id="paperDao"  class="com.exam.dao.PaperDao">
+	    <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 题目-->
+	<bean id="questionAction" scope="prototype" class="com.exam.action.QuestionAction">
+	    <property name="questionService" ref="questionService"></property>
+	    <property name="paperService" ref="paperService"></property>
+	</bean>
+	<bean id="questionService" class="com.exam.service.QuestionService">
+		<property name="questionDao" ref="questionDao"></property>
+	</bean>
+	<bean id="questionDao"  class="com.exam.dao.QuestionDao">
+	    <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 考试-->
+	<bean id="examAction" scope="prototype" class="com.exam.action.ExamAction">
+	    <property name="examService" ref="examService"></property>
+	    <property name="questionService" ref="questionService"></property>
+	</bean>
+	<bean id="examService" class="com.exam.service.ExamService">
+		<property name="examDao" ref="examDao"></property>
+	</bean>
+	<bean id="examDao"  class="com.exam.dao.ExamDao">
+	    <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+</beans>  

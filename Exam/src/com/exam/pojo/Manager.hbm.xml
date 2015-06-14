@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.exam.pojo">
+
+	<class name="Manager" table="MANAGER">
+	    
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+            <generator class="native"/>
+		</id>
+		<property name="name" type="java.lang.String">
+			<column length="20" name="NAME" />
+		</property>
+		<property name="password" type="java.lang.String">
+			<column length="20" name="PASSWORD" />
+		</property>
+		<property name="phone" type="java.lang.String">
+			<column length="20" name="PHONE" />
+		</property>
+		<property name="flag" type="java.lang.String">
+			<column length="20" name="FLAG" />
+		</property>
+		
+	</class>
+
+</hibernate-mapping>
